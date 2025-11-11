@@ -1,40 +1,49 @@
+// Importação dos módulos principais
 const express = require('express');
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
 const { faker } = require('@faker-js/faker');
 
+// Configurações iniciais
 const app = express();
 const PORT = 3001;
 const SECRET_KEY = 'Z8vT4k2Fm0xL1oGqI7rUeP9jC3aD5sBc6uL1oGqI7rU=';
 const NUMBER_OF_USERS = 60;
 
+// Middlewares
 app.use(cors());
 app.use(express.json());
 
+// Array para armazenar os usuários
 const users = [];
 
-// Função auxiliar para gerar habilidades aleatórias
+// Função auxiliar para gerar itens aleatórios de um array
 function getRandomItems(array, count) {
   return faker.helpers.arrayElements(array, count);
 }
 
-// Dados base para geração
+// Bases de dados para geração
 const hardSkillsBase = [
-  'Python', 'SQL', 'React', 'Node.js', 'Java', 'AWS', 'Docker', 'Kubernetes', 'Power BI', 'TypeScript'
+  'Python', 'SQL', 'React', 'Node.js', 'Java', 'AWS',
+  'Docker', 'Kubernetes', 'Power BI', 'TypeScript'
 ];
 
 const softSkillsBase = [
-  'Comunicação', 'Liderança', 'Trabalho em equipe', 'Resiliência', 'Pensamento crítico', 'Adaptabilidade'
+  'Comunicação', 'Liderança', 'Trabalho em equipe',
+  'Resiliência', 'Pensamento crítico', 'Adaptabilidade'
 ];
 
-const areasBase = ['Desenvolvimento', 'Design', 'Marketing', 'Saúde', 'Educação', 'Engenharia', 'Dados', 'Vendas'];
+const areasBase = [
+  'Desenvolvimento', 'Design', 'Marketing', 'Saúde',
+  'Educação', 'Engenharia', 'Dados', 'Vendas'
+];
 
-// Loop para gerar usuários com perfil completo
+// Geração de usuários fictícios
 for (let i = 0; i < NUMBER_OF_USERS; i++) {
   users.push({
     id: i + 1,
     nome: faker.person.fullName(),
-    foto: faker.image.avatar(),
+    foto: faker.image.avatar(), // gera URL de imagem de perfil
     cargo: faker.person.jobTitle(),
     resumo: faker.person.bio(),
     localizacao: `${faker.location.city()}/${faker.location.state({ abbreviated: true })}`,
@@ -70,19 +79,24 @@ for (let i = 0; i < NUMBER_OF_USERS; i++) {
       { idioma: 'Inglês', nivel: faker.helpers.arrayElement(['Básico', 'Intermediário', 'Avançado', 'Fluente']) },
       { idioma: 'Espanhol', nivel: faker.helpers.arrayElement(['Básico', 'Intermediário', 'Avançado']) }
     ],
-    areaInteresses: getRandomItems(['IA Ética', 'Educação', 'Sustentabilidade', 'Open Source', 'UX', 'Ciência de Dados'], 2)
+    areaInteresses: getRandomItems(
+      ['IA Ética', 'Educação', 'Sustentabilidade', 'Open Source', 'UX', 'Ciência de Dados'],
+      2
+    )
   });
 }
 
 console.log(`✅ ${users.length} perfis gerados com sucesso pelo Faker.js.`);
 
-// Rota para listar todos os usuários
+//ROTAS
+
+// Rota principal: retorna todos os usuários
 app.get('/usuarios', (req, res) => {
   res.json(users);
 });
 
-// Login simples (ainda baseado em nome + id)
-app.post('/login', (req, resp) => {
+// Rota de login simples
+app.post('/login', (req, res) => {
   const { nome, id } = req.body;
   const user = users.find(u => u.nome === nome && u.id === id);
 
@@ -92,13 +106,13 @@ app.post('/login', (req, resp) => {
       SECRET_KEY,
       { expiresIn: '1h' }
     );
-    return resp.json({ token, user });
+    return res.json({ token, user });
   }
 
-  return resp.status(401).json({ message: 'Credenciais inválidas.' });
+  return res.status(401).json({ message: 'Credenciais inválidas.' });
 });
 
+// Inicialização do servidor
 app.listen(PORT, () => {
-  console.log(`🚀 Backend rodando em http://localhost:${PORT}`);
+  console.log(`🚀 Servidor rodando em http://localhost:${PORT}`);
 });
- 
