@@ -23,96 +23,104 @@ function getRandomItems(array, count) {
 }
 
 // Bases de dados para geração
-const hardSkillsBase = [
+const linguagens = [
   'Python', 'SQL', 'React', 'Node.js', 'Java', 'AWS',
   'Docker', 'Kubernetes', 'Power BI', 'TypeScript'
 ];
 
-const softSkillsBase = [
+const habilidades = [
   'Comunicação', 'Liderança', 'Trabalho em equipe',
   'Resiliência', 'Pensamento crítico', 'Adaptabilidade'
 ];
 
-const areasBase = [
+const areas = [
   'Desenvolvimento', 'Design', 'Marketing', 'Saúde',
   'Educação', 'Engenharia', 'Dados', 'Vendas'
 ];
 
+const interesses = ['IA Ética', 'Educação', 'Sustentabilidade', 'Open Source', 'UX', 'Ciência de Dados'];
+const certificacoesPossiveis = ['AWS Certified', 'Azure Fundamentals', 'Google Cloud Architect', 'Scrum Master', 'ITIL Foundation'];
+const idiomasPossiveis = ['Inglês', 'Espanhol', 'Francês', 'Alemão', 'Mandarim'];
+
 // Geração de usuários fictícios
 for (let i = 0; i < NUMBER_OF_USERS; i++) {
+  const senha = faker.internet.password({ length: 8 }); // gera senha aleatória
+  const numeroFormacoes = faker.number.int({ min: 1, max: 3 });
+  const numeroIdiomas = faker.number.int({ min: 1, max: 3 });
+  const numeroInteresses = faker.number.int({ min: 1, max: 4 });
+
   users.push({
     id: i + 1,
-    nome: faker.person.fullName(),
+    nome: faker.person.fullName(), // gera nome completo
+    username: faker.internet.userName(), // gera username único
+    senha: senha, // senha em texto plano (para teste)
     foto: faker.image.avatar(), // gera URL de imagem de perfil
-    cargo: faker.person.jobTitle(),
-    resumo: faker.person.bio(),
-    localizacao: `${faker.location.city()}/${faker.location.state({ abbreviated: true })}`,
-    area: faker.helpers.arrayElement(areasBase),
-    habilidadesTecnicas: getRandomItems(hardSkillsBase, faker.number.int({ min: 3, max: 6 })),
-    softSkills: getRandomItems(softSkillsBase, faker.number.int({ min: 2, max: 4 })),
-    experiencias: Array.from({ length: faker.number.int({ min: 1, max: 3 }) }, () => ({
-      empresa: faker.company.name(),
-      cargo: faker.person.jobTitle(),
-      inicio: faker.date.past({ years: 5 }).toISOString().slice(0, 7),
-      fim: faker.date.recent({ days: 200 }).toISOString().slice(0, 7),
-      descricao: faker.lorem.sentence()
+    cargo: faker.person.jobTitle(), // gera cargo profissional
+    resumo: faker.person.bio(), // gera uma biografia profissional
+    localizacao: `${faker.location.city()}/${faker.location.state({ abbreviated: true })}`, // gera uma localização
+    area: faker.helpers.arrayElement(areas), // seleciona uma área de atuação  
+    habilidadesTecnicas: getRandomItems(linguagens, faker.number.int({ min: 3, max: 6 })), // seleciona habilidades técnicas
+    softSkills: getRandomItems(habilidades, faker.number.int({ min: 2, max: 4 })), // seleciona soft skills
+    experiencias: Array.from({ length: faker.number.int({ min: 1, max: 3 }) }, () => ({ // gera experiências profissionais
+      empresa: faker.company.name(), // gera nome da empresa
+      cargo: faker.person.jobTitle(), // gera cargo
+      inicio: faker.date.past({ years: 5 }).toISOString().slice(0, 7), // gera data de começo de carreira
+      fim: faker.date.recent({ days: 200 }).toISOString().slice(0, 7), // gera data de fim de carreira
+      descricao: faker.lorem.sentence() // gera descrição da experiência
     })),
-    formacao: [
-      {
-        curso: faker.person.jobArea() + ' - ' + faker.word.noun(),
-        instituicao: faker.company.name(),
-        ano: faker.number.int({ min: 2015, max: 2024 })
-      }
-    ],
+    formacao: Array.from({ length: numeroFormacoes }, () => ({
+      curso: faker.person.jobArea() + ' - ' + faker.word.noun(), // gera nome do curso
+      instituicao: faker.company.name(), // gera nome da instituição
+      ano: faker.number.int({ min: 2015, max: 2024 }) // gera ano de conclusão
+    })),
     projetos: [
       {
-        titulo: faker.commerce.productName(),
-        link: faker.internet.url(),
-        descricao: faker.commerce.productDescription()
+        titulo: faker.commerce.productName(), // gera título do projeto
+        link: faker.internet.url(), // gera link do projeto
+        descricao: faker.commerce.productDescription() // gera descrição do projeto
       }
     ],
     certificacoes: getRandomItems(
-      ['AWS Certified', 'Azure Fundamentals', 'Google Cloud Architect', 'Scrum Master', 'ITIL Foundation'],
+      certificacoesPossiveis,
       faker.number.int({ min: 1, max: 2 })
     ),
-    idiomas: [
-      { idioma: 'Inglês', nivel: faker.helpers.arrayElement(['Básico', 'Intermediário', 'Avançado', 'Fluente']) },
-      { idioma: 'Espanhol', nivel: faker.helpers.arrayElement(['Básico', 'Intermediário', 'Avançado']) }
-    ],
-    areaInteresses: getRandomItems(
-      ['IA Ética', 'Educação', 'Sustentabilidade', 'Open Source', 'UX', 'Ciência de Dados'],
-      2
-    )
+    idiomas: Array.from({ length: numeroIdiomas }, () => ({
+      idioma: faker.helpers.arrayElement(idiomasPossiveis), // seleciona idioma
+      nivel: faker.helpers.arrayElement(['Básico', 'Intermediário', 'Avançado', 'Fluente']) // seleciona nível
+    })),
+    areaInteresses: getRandomItems(interesses, numeroInteresses) // seleciona interesses
   });
 }
-
-console.log(`✅ ${users.length} perfis gerados com sucesso pelo Faker.js.`);
-
-//ROTAS
 
 // Rota principal: retorna todos os usuários
 app.get('/usuarios', (req, res) => {
   res.json(users);
 });
 
-// Rota de login simples
+// Rota de login: agora usa username + senha
 app.post('/login', (req, res) => {
-  const { nome, id } = req.body;
-  const user = users.find(u => u.nome === nome && u.id === id);
+  const { username, senha } = req.body; // recebe os dados do front-end
+
+  // procura usuário com username e senha correspondentes
+  const user = users.find(u => u.username === username && u.senha === senha);
 
   if (user) {
+    // gera token JWT com id, nome, username e cargo
     const token = jwt.sign(
-      { id: user.id, nome: user.nome, cargo: user.cargo },
+      { id: user.id, nome: user.nome, username: user.username, cargo: user.cargo },
       SECRET_KEY,
-      { expiresIn: '1h' }
+      { expiresIn: '1h' } // token expira em 1 hora
     );
+
+    // retorna token e dados do usuário
     return res.json({ token, user });
   }
 
+  // caso não encontre usuário com essas credenciais
   return res.status(401).json({ message: 'Credenciais inválidas.' });
 });
 
 // Inicialização do servidor
 app.listen(PORT, () => {
-  console.log(`🚀 Servidor rodando em http://localhost:${PORT}`);
+  console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
