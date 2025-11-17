@@ -1,14 +1,16 @@
 // src/components/UserList.jsx
 import UserCard from './UserCard';
 
-// Recebe a lista de 'users' como prop
-function UserList({ users }) {
+// 1. Receba 'onCardClick' aqui
+function UserList({ users, onCardClick }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
-      {/* Mapeia (faz um loop) na lista de usuários */}
       {users.map((user) => (
-        // Para cada usuário, cria um UserCard
-        <UserCard key={user.id} user={user} />
+        <UserCard 
+          key={user.id} 
+          user={user} 
+          onCardClick={onCardClick} // 2. Passe a função adiante para o Card
+        />
       ))}
     </div>
   );

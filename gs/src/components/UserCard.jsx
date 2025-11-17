@@ -1,16 +1,22 @@
 // src/components/UserCard.jsx
-
-// 'user' será uma "prop" (propriedade) que este componente receberá
-function UserCard({ user }) {
+function UserCard({ user, onCardClick }) {
   return (
-    <div className="bg-white shadow-md rounded-lg p-4 cursor-pointer hover:shadow-xl transition-shadow">
-      <img src={user.foto} alt={user.nome} className="w-24 h-24 rounded-full mx-auto" />
-      <h3 className="text-xl font-bold text-center mt-2">{user.nome}</h3>
-      <p className="text-gray-600 text-center">{user.cargo}</p>
-      <div className="flex flex-wrap gap-1 justify-center mt-2">
-        {/* Pega as 3 primeiras skills técnicas */}
+    <div 
+      onClick={() => onCardClick(user)}
+      // Aumentamos o padding de p-4 para p-6
+      className="bg-white dark:bg-gray-800 shadow-md rounded-lg p-6 cursor-pointer hover:shadow-xl transition-shadow"
+    >
+      {/* Aumentamos a imagem de w-24 h-24 para w-28 h-28 */}
+      <img src={user.foto} alt={user.nome} className="w-28 h-28 rounded-full mx-auto" />
+      
+      {/* Aumentamos o nome de text-xl para text-2xl */}
+      <h3 className="text-2xl font-bold text-center mt-4 dark:text-white">{user.nome}</h3>
+      <p className="text-gray-600 dark:text-gray-300 text-center text-base mt-1">{user.cargo}</p>
+      
+      <div className="flex flex-wrap gap-2 justify-center mt-4">
         {user.habilidadesTecnicas.slice(0, 3).map((skill) => (
-          <span key={skill} className="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">
+          // Aumentamos as tags de text-xs para text-sm
+          <span key={skill} className="bg-blue-100 text-blue-800 text-sm font-semibold px-3 py-1 rounded-full dark:bg-blue-200 dark:text-blue-800">
             {skill}
           </span>
         ))}
