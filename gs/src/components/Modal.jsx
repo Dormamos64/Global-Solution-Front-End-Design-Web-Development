@@ -2,7 +2,6 @@
 import { BriefcaseIcon, AcademicCapIcon } from '@heroicons/react/24/outline';
 
 function Modal({ user, onClose }) {
-
   const handleRecommend = () => alert(`Você recomendou ${user.nome}!`);
   const handleMessage = () => alert(`Enviando mensagem para ${user.nome}...`);
 
@@ -64,20 +63,7 @@ function Modal({ user, onClose }) {
               </ul>
             </div>
 
-            <div>
-              <h3 className="text-2xl font-semibold mb-4 dark:text-white">Formação</h3>
-              <ul className="space-y-4">
-                {user.formacao.map((form, index) => (
-                  <li key={index} className="flex gap-4">
-                    <AcademicCapIcon className="h-6 w-6 text-blue-600 dark:text-blue-400 mt-1 flex-shrink-0" />
-                    <div>
-                      <h4 className="font-bold text-lg dark:text-white">{form.curso}</h4>
-                      <p className="text-gray-700 dark:text-gray-300">{form.instituicao} (Ano: {form.ano})</p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            {/* (Aqui você adicionaria Formação, etc.) */}
           </div>
 
           {/* Coluna Direita (Sidebar) */}
@@ -92,28 +78,7 @@ function Modal({ user, onClose }) {
                 ))}
               </div>
             </div>
-
-            <div>
-              <h3 className="text-xl font-semibold mb-3 dark:text-white">Soft Skills</h3>
-              <div className="flex flex-wrap gap-2">
-                {user.softSkills.map(skill => (
-                  <span key={skill} className="bg-green-100 text-green-800 px-3 py-1 rounded-full dark:bg-green-200 dark:text-green-800 text-sm">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-semibold mb-3 dark:text-white">Interesses</h3>
-              <div className="flex flex-wrap gap-2">
-                {user.areaInteresses.map(item => (
-                  <span key={item} className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full dark:bg-purple-200 dark:text-purple-800 text-sm">
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
+            {/* (Aqui você adicionaria Soft Skills, Interesses, etc.) */}
           </div>
         </div>
       </div>

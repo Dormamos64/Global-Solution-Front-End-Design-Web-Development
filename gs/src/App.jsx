@@ -4,6 +4,8 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import UserList from './components/UserList';
 import Modal from './components/Modal';
+import ProfileSidebar from './components/ProfileSidebar'; // Novo
+import FilterSidebar from './components/FilterSidebar'; // Novo
 import { useDarkMode } from './useDarkMode';
 
 function App() {
@@ -12,9 +14,9 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [selectedUser, setSelectedUser] = useState(null);
 
-  // --- Estado de Filtro ---
+  // --- Estados de Filtro ---
   const [searchTerm, setSearchTerm] = useState("");
-  // (Você pode adicionar mais filtros aqui, ex: filterArea)
+  const [filterArea, setFilterArea] = useState(""); // Novo estado
 
   // --- Hook de Dark Mode ---
   const [isDark, toggleDarkMode] = useDarkMode();
@@ -39,46 +41,61 @@ function App() {
   const handleCardClick = (user) => setSelectedUser(user);
   const handleCloseModal = () => setSelectedUser(null);
 
-  // --- Lógica de Filtro ---
+  // --- Lógica de Filtro (Atualizada) ---
   const filteredUsers = users.filter((user) => {
     const query = searchTerm.toLowerCase();
-    return user.nome.toLowerCase().includes(query) ||
-           user.cargo.toLowerCase().includes(query);
-    // (Adicione mais lógicas de filtro aqui se precisar)
+    
+    // Filtro de Busca
+    const matchesSearch = user.nome.toLowerCase().includes(query) ||
+                          user.cargo.toLowerCase().includes(query);
+    // Filtro de Área
+    const matchesArea = filterArea === "" || user.area === filterArea;
+
+    return matchesSearch && matchesArea;
   });
 
+  // --- Dados para os Widgets ---
+  const loggedInUser = users[0]; // Pega o primeiro usuário para o Perfil
+  const suggestedUsers = users.slice(1, 6); // Pega 5 usuários para Sugestões
+  const areasUnicas = [...new Set(users.map(u => u.area))]; // Pega áreas para o <select>
+
   if (loading) {
-    return (
-      <div className="flex justify-center items-center min-h-screen dark:bg-gray-900">
-        <p className="text-xl dark:text-white">Carregando profissionais...</p>
-      </div>
-    );
+    // ... (seu loading)
   }
 
   return (
-    // Layout principal: Flex Coluna de altura mínima da tela
     <div className="flex flex-col min-h-screen bg-gray-100 dark:bg-gray-900">
       
-      <Navbar 
-        onSearchChange={(e) => setSearchTerm(e.target.value)}
-        isDark={isDark}
-        onToggleDarkMode={toggleDarkMode}
-      />
+      <Navbar isDark={isDark} onToggleDarkMode={toggleDarkMode} />
       
-      {/* Conteúdo Principal (flex-grow faz ele "empurrar" o footer para baixo) */}
+      {/* NOVO LAYOUT DE 3 COLUNAS */}
       <main className="flex-grow container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold mb-6 dark:text-white">
-          Conecte-se com Profissionais
-        </h1>
-        <UserList users={filteredUsers} onCardClick={handleCardClick} />
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+          
+          {/* Coluna Esquerda (Perfil) */}
+          <ProfileSidebar user={loggedInUser} />
+
+          {/* Coluna Central (Conteúdo Principal) */}
+          <div className="col-span-1 lg:col-span-2 space-y-6">
+            <h1 className="text-3xl font-bold mb-6 dark:text-white">
+              Profissionais
+            </h1>
+            <UserList users={filteredUsers} onCardClick={handleCardClick} />
+          </div>
+
+          {/* Coluna Direita (Filtros) */}
+          <FilterSidebar 
+            onSearchChange={(e) => setSearchTerm(e.target.value)}
+            onAreaChange={(e) => setFilterArea(e.target.value)}
+            areasUnicas={areasUnicas}
+            suggestedUsers={suggestedUsers}
+          />
+        </div>
       </main>
 
-      {/* Modal (Renderização condicional) */}
+      {/* O Modal continua fora do layout, na raiz */}
       {selectedUser && (
-        <Modal 
-          user={selectedUser} 
-          onClose={handleCloseModal}
-        />
+        <Modal user={selectedUser} onClose={handleCloseModal} />
       )}
       
       <Footer />

@@ -1,15 +1,15 @@
 // src/components/UserList.jsx
 import UserCard from './UserCard';
 
-// 1. Receba 'onCardClick' aqui
 function UserList({ users, onCardClick }) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
+    // 1. MUDANÇA: Reduzimos as colunas para 2 e aumentamos o espaçamento (gap)
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
       {users.map((user) => (
         <UserCard 
           key={user.id} 
           user={user} 
-          onCardClick={onCardClick} // 2. Passe a função adiante para o Card
+          onCardClick={onCardClick}
         />
       ))}
     </div>
