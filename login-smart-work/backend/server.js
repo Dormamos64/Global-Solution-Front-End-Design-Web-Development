@@ -52,7 +52,7 @@ for (let i = 0; i < NUMBER_OF_USERS; i++) {
   users.push({
     id: i + 1,
     nome: faker.person.fullName(), // gera nome completo
-    username: faker.internet.userName(), // gera username único
+    username: faker.internet.username(), // gera username único
     senha: senha, // senha em texto plano (para teste)
     foto: faker.image.avatar(), // gera URL de imagem de perfil
     cargo: faker.person.jobTitle(), // gera cargo profissional
