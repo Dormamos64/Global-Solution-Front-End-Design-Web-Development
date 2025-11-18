@@ -23,8 +23,8 @@
 
 | 🎓 RM | 👨‍💻 Desenvolvedor | 🐱 GitHub |
 | :--- | :--- | :--- |
-| **RM 556170** | **Felipe Yamaguchi Mesquita** | [![GitHub][btn-github]](https://github.com) |
-| **RM 563487** | **Rafael Tavares Santos** | [![GitHub][btn-github]](https://github.com) |
+| **RM 556170** | **Felipe Yamaguchi Mesquita** | [![GitHub][btn-github]](https://github.com/oFeudo) |
+| **RM 563487** | **Rafael Tavares Santos** | [![GitHub][btn-github]](https://github.com/RafaelTech2006) |
 | **RM 563872** | **Gabriel Oliveira Amaral** | [![GitHub][btn-github]](https://github.com/Dormamos64) |
 
 ---
