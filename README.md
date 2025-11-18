@@ -87,7 +87,7 @@ Siga o passo a passo abaixo para rodar o projeto na sua máquina local:
 ### 1️⃣ Clonar o Repositório
 Abra o seu terminal (Git Bash, Powershell ou VS Code) e rode:
 
-```bash
+bash
 git clone [https://github.com/Dormamos64/Global-Solution-Front-End-Design-Web-Development.git](https://github.com/Dormamos64/Global-Solution-Front-End-Design-Web-Development.git)
 
 Aqui está o código completo e unificado do README.md, contendo desde o banner e equipe até o passo a passo de instalação, tudo em um único arquivo.
@@ -183,7 +183,7 @@ Siga o passo a passo abaixo para rodar o projeto na sua máquina local:
 ### 1️⃣ Clonar o Repositório
 Abra o seu terminal (Git Bash, Powershell ou VS Code) e rode:
 
-```bash
+bash
 git clone [https://github.com/Dormamos64/Global-Solution-Front-End-Design-Web-Development.git](https://github.com/Dormamos64/Global-Solution-Front-End-Design-Web-Development.git)
 Entre na pasta do projeto:
 
