@@ -1,111 +1,220 @@
-📌 SmartWork — Plataforma Profissional Interativa
+![Header](https://capsule-render.vercel.app/api?type=waving&color=0f172a&height=250&section=header&text=SmartWork&fontSize=80&animation=fadeIn&fontAlignY=35&desc=Global%20Solution%202025%20•%20FIAP&descAlignY=60&descAlign=50)
 
-Global Solution – Front-End Design & Web Development (FIAP)
-Conectando pessoas, competências e propósito através da tecnologia.
+<div align="center">
 
-<p align="center"> <img src="https://img.shields.io/badge/Status-Ativo-brightgreen?style=for-the-badge"> <img src="https://img.shields.io/badge/Versão-1.0.0-blue?style=for-the-badge"> <img src="https://img.shields.io/badge/License-MIT-purple?style=for-the-badge"> </p> <p align="center"> <a href="#-sobre-o-projeto">Sobre</a> • <a href="#-funcionalidades">Funcionalidades</a> • <a href="#-tecnologias">Tecnologias</a> • <a href="#-instalação">Instalação</a> • <a href="#-estrutura-do-projeto">Estrutura</a> • <a href="#-equipe">Equipe</a> </p>
-📖 Sobre o Projeto
+  <img src="https://img.shields.io/badge/Status-Concluído-success?style=for-the-badge&logo=checklist" alt="Status">
+  <img src="https://img.shields.io/badge/Versão-1.0.0-blue?style=for-the-badge&logo=semver" alt="Version">
+  <br>
+  
+  <h3>🚀 Conectando pessoas, competências e propósito por meio da tecnologia.</h3>
 
-O SmartWork é uma SPA (Single Page Application) criada para demonstrar uma plataforma profissional moderna, dinâmica e acessível.
-A aplicação simula perfis profissionais reais, um feed de notícias inteligente e interações sociais, oferecendo uma navegação fluida e responsiva.
+  <p align="center">
+    <a href="#-equipe">Equipe</a> •
+    <a href="#-sobre-o-projeto">Sobre</a> •
+    <a href="#-funcionalidades">Funcionalidades</a> •
+    <a href="#-tecnologias">Tecnologias</a> •
+    <a href="#-instalação-e-execução">Instalação</a>
+  </p>
+</div>
 
-Este projeto foi desenvolvido como parte da Global Solution da FIAP, integrando conceitos avançados de UI/UX, SPA, API Mockada e design responsivo.
+---
 
-✨ Funcionalidades
-👨‍💼 Painel Profissional
+## 👥 Equipe
 
-Lista de profissionais em cards modernos
+| 🎓 RM | 👨‍💻 Desenvolvedor | 🐱 GitHub |
+| :--- | :--- | :--- |
+| **RM 556170** | **Felipe Yamaguchi Mesquita** | [![GitHub](https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white)](https://github.com) |
+| **RM 563487** | **Rafael Tavares Santos** | [![GitHub](https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white)](https://github.com) |
+| **RM 563872** | **Gabriel Oliveira Amaral** | [![GitHub](https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white)](https://github.com/Dormamos64) |
 
-Foto, cargo, habilidades e resumo
+---
 
-Botões de ação dentro dos cards
+## 💡 Sobre o Projeto
 
-🔎 Busca e Filtros Inteligentes
+O **SmartWork** é uma **Single Page Application (SPA)** desenvolvida como resposta ao desafio da **Global Solution (Front-End Design & Web Development)** da FIAP. 
 
-Busca textual por nome, cargo ou skill
+Inspirado nas mudanças dinâmicas do mercado de trabalho, o projeto simula uma rede social profissional focada em inclusão e networking. A plataforma oferece uma experiência fluida onde usuários podem descobrir talentos, filtrar profissionais por skills e consumir conteúdos relevantes sobre o futuro do trabalho.
 
-Filtro por área de atuação (dropdown dinâmico)
+---
 
-🧩 Modal Completo de Perfil
+## ✨ Funcionalidades
 
-Experiência
+### 🖥️ Dashboard & Navegação
+- [x] **Visualização em Cards:** Design moderno com Tailwind CSS para exibir profissionais.
+- [x] **Feed de Notícias (Sticky):** Coluna lateral fixa com notícias geradas dinamicamente.
+- [x] **Paginação Inteligente:** Sistema "Carregar Mais" para otimizar a performance de listas longas.
 
-Formação
+### 🔍 Busca & Filtros
+- [x] **Filtro Textual:** Busca em tempo real por nome, cargo ou habilidade.
+- [x] **Filtro por Categoria:** Dropdown dinâmico baseado nas áreas dos profissionais cadastrados.
 
-Soft skills
+### 🎨 UI/UX
+- [x] **Dark Mode:** Tema escuro integrado e persistente.
+- [x] **Responsividade:** Adaptável para Mobile, Tablet e Desktop.
+- [x] **Modal Interativa:** Detalhes completos do perfil (Formação, Experiência, Hobbies).
 
-Botões: Recomendar, Enviar Mensagem
+---
 
-📰 Feed de Notícias
+## 🛠️ Tecnologias
 
-Geração dinâmica via Faker.js
+Este projeto utiliza as ferramentas mais modernas do ecossistema JavaScript:
 
-Área lateral fixa (“sticky sidebar”)
+<div align="center">
 
-Botão Carregar mais
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
+![Faker.js](https://img.shields.io/badge/Faker.js-000000?style=for-the-badge&logo=javascript&logoColor=white)
 
-🌙 Tema e Responsividade
+</div>
 
-Dark/Light Mode com persistência
+---
 
-Layout 100% responsivo via Tailwind
+## 🔐 Acesso e Dados (Mock)
 
-🛠 Tecnologias
-<p align="center"> <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react"> <img src="https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite"> <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css"> <img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js"> <img src="https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express"> </p>
+O sistema utiliza um **Backend Simulado** (`server.js`) que gera dados aleatórios a cada inicialização.
 
-Outras libs utilizadas:
+* **Login:** O acesso é liberado diretamente para o Dashboard para facilitar a avaliação da interface (sem barreira de login).
+* **Dados:** Utilizamos a biblioteca **Faker.js** para criar 60 perfis e 40 notícias fictícias (nomes, fotos, cargos) automaticamente.
 
-Faker.js
+---
 
-Lucide React
+## 🚀 Instalação e Execução
 
-Axios
+Siga o passo a passo abaixo para rodar o projeto na sua máquina local:
 
-📦 Instalação
-✅ Pré-requisitos
+### 1️⃣ Clonar o Repositório
+Abra o seu terminal (Git Bash, Powershell ou VS Code) e rode:
 
-Node.js instalado
+```bash
+git clone [https://github.com/Dormamos64/Global-Solution-Front-End-Design-Web-Development.git](https://github.com/Dormamos64/Global-Solution-Front-End-Design-Web-Development.git)
 
-Git instalado
+Aqui está o código completo e unificado do README.md, contendo desde o banner e equipe até o passo a passo de instalação, tudo em um único arquivo.
 
-▶️ Passo a passo
-# 1. Clone o repositório
-git clone https://github.com/Dormamos64/Global-Solution-Front-End-Design-Web-Development.git
+Markdown
 
-# 2. Acesse a pasta
+![Header](https://capsule-render.vercel.app/api?type=waving&color=0f172a&height=250&section=header&text=SmartWork&fontSize=80&animation=fadeIn&fontAlignY=35&desc=Global%20Solution%202025%20•%20FIAP&descAlignY=60&descAlign=50)
+
+<div align="center">
+
+  <img src="https://img.shields.io/badge/Status-Concluído-success?style=for-the-badge&logo=checklist" alt="Status">
+  <img src="https://img.shields.io/badge/Versão-1.0.0-blue?style=for-the-badge&logo=semver" alt="Version">
+  <br>
+  
+  <h3>🚀 Conectando pessoas, competências e propósito por meio da tecnologia.</h3>
+
+  <p align="center">
+    <a href="#-equipe">Equipe</a> •
+    <a href="#-sobre-o-projeto">Sobre</a> •
+    <a href="#-funcionalidades">Funcionalidades</a> •
+    <a href="#-tecnologias">Tecnologias</a> •
+    <a href="#-instalação-e-execução">Instalação</a>
+  </p>
+</div>
+
+---
+
+## 👥 Equipe
+
+| 🎓 RM | 👨‍💻 Desenvolvedor | 🐱 GitHub |
+| :--- | :--- | :--- |
+| **RM 556170** | **Felipe Yamaguchi Mesquita** | [![GitHub](https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white)](https://github.com) |
+| **RM 563487** | **Rafael Tavares Santos** | [![GitHub](https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white)](https://github.com) |
+| **RM 563872** | **Gabriel Oliveira Amaral** | [![GitHub](https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white)](https://github.com/Dormamos64) |
+
+---
+
+## 💡 Sobre o Projeto
+
+O **SmartWork** é uma **Single Page Application (SPA)** desenvolvida como resposta ao desafio da **Global Solution (Front-End Design & Web Development)** da FIAP. 
+
+Inspirado nas mudanças dinâmicas do mercado de trabalho, o projeto simula uma rede social profissional focada em inclusão e networking. A plataforma oferece uma experiência fluida onde usuários podem descobrir talentos, filtrar profissionais por skills e consumir conteúdos relevantes sobre o futuro do trabalho.
+
+---
+
+## ✨ Funcionalidades
+
+### 🖥️ Dashboard & Navegação
+- [x] **Visualização em Cards:** Design moderno com Tailwind CSS para exibir profissionais.
+- [x] **Feed de Notícias (Sticky):** Coluna lateral fixa com notícias geradas dinamicamente.
+- [x] **Paginação Inteligente:** Sistema "Carregar Mais" para otimizar a performance de listas longas.
+
+### 🔍 Busca & Filtros
+- [x] **Filtro Textual:** Busca em tempo real por nome, cargo ou habilidade.
+- [x] **Filtro por Categoria:** Dropdown dinâmico baseado nas áreas dos profissionais cadastrados.
+
+### 🎨 UI/UX
+- [x] **Dark Mode:** Tema escuro integrado e persistente.
+- [x] **Responsividade:** Adaptável para Mobile, Tablet e Desktop.
+- [x] **Modal Interativa:** Detalhes completos do perfil (Formação, Experiência, Hobbies).
+
+---
+
+## 🛠️ Tecnologias
+
+Este projeto utiliza as ferramentas mais modernas do ecossistema JavaScript:
+
+<div align="center">
+
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
+![Faker.js](https://img.shields.io/badge/Faker.js-000000?style=for-the-badge&logo=javascript&logoColor=white)
+
+</div>
+
+---
+
+## 🔐 Acesso e Dados (Mock)
+
+O sistema utiliza um **Backend Simulado** (`server.js`) que gera dados aleatórios a cada inicialização.
+
+* **Login:** O acesso é liberado diretamente para o Dashboard para facilitar a avaliação da interface (sem barreira de login).
+* **Dados:** Utilizamos a biblioteca **Faker.js** para criar 60 perfis e 40 notícias fictícias (nomes, fotos, cargos) automaticamente.
+
+---
+
+## 🚀 Instalação e Execução
+
+Siga o passo a passo abaixo para rodar o projeto na sua máquina local:
+
+### 1️⃣ Clonar o Repositório
+Abra o seu terminal (Git Bash, Powershell ou VS Code) e rode:
+
+```bash
+git clone [https://github.com/Dormamos64/Global-Solution-Front-End-Design-Web-Development.git](https://github.com/Dormamos64/Global-Solution-Front-End-Design-Web-Development.git)
+Entre na pasta do projeto:
+
+Bash
+
 cd Global-Solution-Front-End-Design-Web-Development
+2️⃣ Instalar Dependências
+Instale todas as bibliotecas necessárias (Front-end e Back-end) com um único comando:
 
-# 3. Instale as dependências
+Bash
+
 npm install
+3️⃣ Iniciar o Backend (API)
+Este passo é crucial para gerar os dados. No terminal, execute:
 
-# 4. Inicie o servidor (API Mock)
+Bash
+
 node server.js
+Você verá a mensagem: ✅ Servidor rodando em http://localhost:3001
 
-# 5. Em outro terminal, rode o front-end
+4️⃣ Iniciar o Frontend
+Abra um segundo terminal (mantenha o anterior rodando) e inicie a aplicação React:
+
+Bash
+
 npm run dev
+📍 Acesse no navegador: http://localhost:5173
 
-📁 Estrutura do Projeto
-📦 Global-Solution-Front-End-Design-Web-Development
-├── 📁 public/           # Assets e arquivos estáticos
-├── 📁 src/
-│   ├── components/      # Componentes reutilizáveis
-│   ├── pages/           # Páginas da aplicação
-│   ├── hooks/           # Hooks personalizados
-│   ├── services/        # Conexão com API
-│   ├── styles/          # Estilos globais / Tailwind
-│   └── App.jsx          # Entry-point da SPA
-├── server.js            # Servidor mockado com Faker.js
-├── package.json
-└── vite.config.js
+<div align="center">
 
-🧪 Scripts Úteis
-npm run dev        # Executa o front-end em modo de dev
-npm run build      # Build de produção
-npm run preview    # Pré-visualização do build final
-node server.js     # API Mock com Faker.js
+🔗 Repositório Oficial
+FIAP - Global Solution 2025 💙
 
-👥 Equipe
-Integrante	RM
-Felipe Yamaguchi Mesquita	556170
-Rafael Tavares Santos	563487
-Gabriel Oliveira Amaral	563872
+</div>
