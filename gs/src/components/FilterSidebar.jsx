@@ -1,4 +1,4 @@
-// src/components/FilterSidebar.jsx
+
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 
 function FilterSidebar({ onSearchChange, onAreaChange, areasUnicas, suggestedUsers }) {
@@ -6,7 +6,7 @@ function FilterSidebar({ onSearchChange, onAreaChange, areasUnicas, suggestedUse
     <aside className="hidden lg:block col-span-1">
       <div className="bg-white dark:bg-gray-800 shadow-md rounded-lg p-5 sticky top-24 space-y-6">
         
-        {/* Filtro de Busca */}
+  
         <div>
           <h4 className="font-bold text-lg mb-3 dark:text-white">Buscar</h4>
           <div className="relative">
@@ -20,7 +20,7 @@ function FilterSidebar({ onSearchChange, onAreaChange, areasUnicas, suggestedUse
           </div>
         </div>
 
-        {/* Filtro de Área */}
+   
         <div>
           <h4 className="font-bold text-lg mb-3 dark:text-white">Filtrar por Área</h4>
           <select 
@@ -34,7 +34,7 @@ function FilterSidebar({ onSearchChange, onAreaChange, areasUnicas, suggestedUse
           </select>
         </div>
 
-        {/* Sugestões (Widget bônus) */}
+
         <div>
           <h4 className="font-bold text-lg mb-4 dark:text-white">Sugestões</h4>
           <ul className="space-y-4">

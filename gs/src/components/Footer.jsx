@@ -1,4 +1,3 @@
-// src/components/Footer.jsx
 function Footer() {
   return (
     <footer className="bg-white dark:bg-gray-800 shadow-inner mt-12 py-6 text-center">

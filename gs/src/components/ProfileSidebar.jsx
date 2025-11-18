@@ -1,11 +1,11 @@
-// src/components/ProfileSidebar.jsx
+
 function ProfileSidebar({ user }) {
-  if (!user) return null; // Não renderiza se o usuário ainda não carregou
+  if (!user) return null; 
 
   return (
     <aside className="hidden lg:block col-span-1">
       <div className="bg-white dark:bg-gray-800 shadow-md rounded-lg p-5 text-center sticky top-24">
-        {/* Imagem "salta" para fora do card */}
+
         <img 
           src={user.foto} 
           alt={user.nome} 

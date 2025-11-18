@@ -1,4 +1,3 @@
-// src/components/Modal.jsx
 import { BriefcaseIcon, AcademicCapIcon } from '@heroicons/react/24/outline';
 
 function Modal({ user, onClose }) {
@@ -10,14 +9,14 @@ function Modal({ user, onClose }) {
       onClick={onClose} 
       className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 p-4"
     >
-      {/* AUMENTAMOS O TAMANHO de max-w-2xl para max-w-4xl */}
+
       <div 
         onClick={(e) => e.stopPropagation()} 
         className="bg-white p-6 sm:p-8 rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto dark:bg-gray-800"
       >
         <button onClick={onClose} className="absolute top-4 right-5 font-bold text-2xl dark:text-white">&times;</button>
         
-        {/* --- Cabeçalho do Modal --- */}
+
         <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 pb-6 border-b dark:border-gray-700">
           <img src={user.foto} alt={user.nome} className="w-32 h-32 rounded-full flex-shrink-0" />
           <div className="text-center sm:text-left flex-grow">
@@ -36,10 +35,10 @@ function Modal({ user, onClose }) {
           </div>
         </div>
 
-        {/* --- Corpo do Modal (Grid) --- */}
+
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-6">
           
-          {/* Coluna Esquerda (Principal) */}
+
           <div className="lg:col-span-2 space-y-6">
             
             <div>
@@ -63,10 +62,10 @@ function Modal({ user, onClose }) {
               </ul>
             </div>
 
-            {/* (Aqui você adicionaria Formação, etc.) */}
+
           </div>
 
-          {/* Coluna Direita (Sidebar) */}
+
           <div className="lg:col-span-1 space-y-6">
             <div>
               <h3 className="text-xl font-semibold mb-3 dark:text-white">Habilidades Técnicas</h3>
@@ -78,7 +77,6 @@ function Modal({ user, onClose }) {
                 ))}
               </div>
             </div>
-            {/* (Aqui você adicionaria Soft Skills, Interesses, etc.) */}
           </div>
         </div>
       </div>

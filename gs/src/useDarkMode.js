@@ -1,4 +1,3 @@
-// src/useDarkMode.js
 import { useState, useEffect } from 'react';
 
 export function useDarkMode() {
@@ -8,7 +7,7 @@ export function useDarkMode() {
   );
 
   useEffect(() => {
-    const root = window.document.documentElement; // Tag <html>
+    const root = window.document.documentElement; 
     if (isDark) {
       root.classList.add('dark');
       localStorage.theme = 'dark';
